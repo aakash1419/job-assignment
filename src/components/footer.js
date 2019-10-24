@@ -82,7 +82,7 @@ export const Footer = () => {
             <Grid container>
                 {
                     FooterLinks.map((item, index) => (
-                        <Grid item md={3}>
+                        <Grid item md={3} key={index}>
                             <div className={classes.linkBox}>
                                 <div className={classes.footerHead}>{item.name}</div>
                                 <div className={classes.footerTabs}>

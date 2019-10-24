@@ -65,7 +65,7 @@ export const FAQ = () => {
                 </Grid>
                 {
                     faq.map((item, index) => (
-                        <Grid item md={6} xs={12}>
+                        <Grid key={index} item md={6} xs={12}>
                             <Grid container>
                                 <Grid item>
                                     <div className={classes.question}>{item.que}</div>

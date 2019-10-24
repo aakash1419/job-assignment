@@ -46,21 +46,25 @@ const useStyles = makeStyles((theme) =>
         indicator: {
             height: '3px',
             maxWidth: '85px',
-            marginLeft: '36px',
+            marginLeft: '2px',
             marginBottom: '97px',
             backgroundColor: '#2f326a'
         },
         flexContainer: {
             marginTop: '23px',
             display: 'flex',
-            justifyContent: 'center',
-            width: '87px'
+            justifyContent: 'center'
         },
         wrapper: {
             fontSize: '15px',
             fontWeight: '400',
             color: '#66677d',
-            textTransform: 'capitalize'
+            textTransform: 'capitalize',
+            width: '86px'
+        },
+        root: {
+            minWidth: '86px',
+            padding: '0px'
         }
 
     })
@@ -75,7 +79,7 @@ export const NavBar = () => {
     const listenScroll = () => {
         if(window.scrollY > 100) {
             setColor('#fff');
-            setElevation(2);
+            setElevation(1);
         }else {
             setColor('#F7F8FA')
             setElevation(0);
@@ -109,13 +113,13 @@ export const NavBar = () => {
                     </Link>
                 </div>
                 <div className={classes.tabs}>
+                    <Tabs value={value} onChange={handleChange} classes={{indicator: classes.indicator, flexContainer: classes.flexContainer}} >
                     {
-                        NavTabs.map((item, index) => (
-                            <Tabs value={value} onChange={handleChange} classes={{indicator: classes.indicator, flexContainer: classes.flexContainer}} >
-                                    <Tab label={item.title} value={index} classes={{wrapper: classes.wrapper}}  />
-                            </Tabs> 
-                        ))
-                    }
+                        NavTabs.map((item, index, key) => (
+                                    <Tab key={index} label={item.title} value={index} classes={{wrapper: classes.wrapper, root: classes.root}}  />
+                                    ))
+                                }
+                    </Tabs> 
                 </div>
                 <div>
                     <Button className={classes.textButton}>Sign In</Button>

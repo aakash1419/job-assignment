@@ -106,7 +106,7 @@ export const AmountCard = (props) => {
                 <div className={classes.featureBox}>
                     {
                         props.details.features.map((item, index) => (
-                            <div className={classes.featureName}>
+                            <div key={index} className={classes.featureName}>
                                 <div className={classes.checkIcon}><CheckIcon /></div>
                                 <div className={classes.featureItem}>{item}</div>
                             </div>
